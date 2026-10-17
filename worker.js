@@ -53,22 +53,20 @@ export default {
       if (route === "chat") {
         if (!(await limit(env, "a" + ip, 30, 3600))) return J({ reply: "Terlalu banyak pertanyaan, coba lagi nanti." }, 429);
         const h = (Array.isArray(b.messages) ? b.messages : []).slice(-8).map((x) => ({
-          role: x.role === "user" ? "user" : "model",
-          parts: [{ text: String(x.text || "").slice(0, 500) }],
+          role: x.role === "user" ? "user" : "assistant",
+          content: String(x.text || "").slice(0, 500),
         }));
         if (!h.length || h[h.length - 1].role !== "user") return J({ error: "invalid" }, 400);
-        const model = "gemini-3.6-flash";
-        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
-  method: "POST",
-  headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
-          body: JSON.stringify({
-            systemInstruction: { parts: [{ text: PROFILE }] },
-            contents: h,
-            generationConfig: { maxOutputTokens: 300, temperature: 0.6 },
-          }),
-        });
-        const d = await r.json();
-        return J({ reply: d.candidates?.[0]?.content?.parts?.[0]?.text || ("Maaf, belum bisa menjawab. Info teknis: " + (d.error?.message || "kosong")) });
+        try {
+          const out = await env.AI.run("@cf/meta/llama-3.1-8b-instruct", {
+            messages: [{ role: "system", content: PROFILE }, ...h],
+            max_tokens: 300,
+            temperature: 0.6,
+          });
+          return J({ reply: out.response || "Maaf, saya belum bisa menjawab itu." });
+        } catch (err) {
+          return J({ reply: "Maaf, belum bisa menjawab. Info teknis: " + String(err.message || err).slice(0, 150) });
+        }
       }
       return J({ error: "not found" }, 404);
     } catch (err) {
