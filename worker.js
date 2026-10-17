@@ -68,7 +68,7 @@ export default {
           }),
         });
         const d = await r.json();
-        return J({ reply: d.candidates?.[0]?.content?.parts?.[0]?.text || "Maaf, saya belum bisa menjawab itu." });
+        return J({ reply: d.candidates?.[0]?.content?.parts?.[0]?.text || ("Maaf, belum bisa menjawab. Info teknis: " + (d.error?.message || "kosong")) });
       }
       return J({ error: "not found" }, 404);
     } catch (err) {
