@@ -58,12 +58,12 @@ export default {
         }));
         if (!h.length || h[h.length - 1].role !== "user") return J({ error: "invalid" }, 400);
         try {
-          const out = await env.AI.run("@cf/meta/llama-3.1-8b-instruct", {
+          const out = await env.AI.run("@cf/zai-org/glm-4.7-flash", {
             messages: [{ role: "system", content: PROFILE }, ...h],
-            max_tokens: 300,
+            max_tokens: 600,
             temperature: 0.6,
           });
-          return J({ reply: out.response || "Maaf, saya belum bisa menjawab itu." });
+          return J({ reply: out.response || out.choices?.[0]?.message?.content || "Maaf, saya belum bisa menjawab itu." });
         } catch (err) {
           return J({ reply: "Maaf, belum bisa menjawab. Info teknis: " + String(err.message || err).slice(0, 150) });
         }
