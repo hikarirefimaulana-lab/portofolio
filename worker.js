@@ -57,7 +57,7 @@ export default {
           parts: [{ text: String(x.text || "").slice(0, 500) }],
         }));
         if (!h.length || h[h.length - 1].role !== "user") return J({ error: "invalid" }, 400);
-        const model = env.GEMINI_MODEL || "gemini-2.0-flash";
+        const model = "gemini-3.6-flash";
         const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${env.GEMINI_API_KEY}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
