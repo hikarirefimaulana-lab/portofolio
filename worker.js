@@ -58,9 +58,9 @@ export default {
         }));
         if (!h.length || h[h.length - 1].role !== "user") return J({ error: "invalid" }, 400);
         const model = "gemini-3.6-flash";
-        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${env.GEMINI_API_KEY}`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
+        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
+  method: "POST",
+  headers: { "Content-Type": "application/json", "x-goog-api-key": env.GEMINI_API_KEY },
           body: JSON.stringify({
             systemInstruction: { parts: [{ text: PROFILE }] },
             contents: h,
