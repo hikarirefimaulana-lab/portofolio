@@ -58,7 +58,7 @@ export default {
         }));
         if (!h.length || h[h.length - 1].role !== "user") return J({ error: "invalid" }, 400);
         try {
-          const out = await env.AI.run("@cf/zai-org/glm-4.7-flash", {
+          const out = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
             messages: [{ role: "system", content: PROFILE }, ...h],
             max_tokens: 600,
             temperature: 0.6,
