@@ -7,5 +7,6 @@
     "binding": "ASSETS",
     "run_worker_first": ["/api/*"]
   },
+  "vars": { "TELEGRAM_CHAT_ID": "8086581937" },
   "kv_namespaces": [{ "binding": "KV" }]
 }
