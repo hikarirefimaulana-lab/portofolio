@@ -1,12 +1,3 @@
-const PROFILE = `Kamu adalah asisten di situs portofolio Rev.
-Jawab singkat (maks 3 kalimat), ramah, dalam bahasa pengunjung.
-Jawab HANYA dari info di bawah. Kalau tidak tahu, bilang tidak tahu dan arahkan ke form kontak.
-INFO:
-- Nama: Nama Kamu, web developer di Indonesia.
-- Skill: HTML/CSS, JavaScript, React, Node.js, Figma, Git, Three.js.
-- Hobi: fotografi, musik, game indie, bersepeda.
-- Makanan favorit: nasi goreng, soto ayam, kopi susu.`;
-
 const J = (o, s = 200) => new Response(JSON.stringify(o), {
   status: s,
   headers: { "Content-Type": "application/json", "Cache-Control": "no-store" },
@@ -48,25 +39,6 @@ export default {
           });
         }
         return J({ ok: true });
-      }
-
-      if (route === "chat") {
-        if (!(await limit(env, "a" + ip, 30, 3600))) return J({ reply: "Terlalu banyak pertanyaan, coba lagi nanti." }, 429);
-        const h = (Array.isArray(b.messages) ? b.messages : []).slice(-8).map((x) => ({
-          role: x.role === "user" ? "user" : "assistant",
-          content: String(x.text || "").slice(0, 500),
-        }));
-        if (!h.length || h[h.length - 1].role !== "user") return J({ error: "invalid" }, 400);
-        try {
-          const out = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
-            messages: [{ role: "system", content: PROFILE }, ...h],
-            max_tokens: 600,
-            temperature: 0.6,
-          });
-          return J({ reply: out.response || out.choices?.[0]?.message?.content || "Maaf, saya belum bisa menjawab itu." });
-        } catch (err) {
-          return J({ reply: "Maaf, belum bisa menjawab. Info teknis: " + String(err.message || err).slice(0, 150) });
-        }
       }
       return J({ error: "not found" }, 404);
     } catch (err) {
