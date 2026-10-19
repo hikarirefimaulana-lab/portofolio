@@ -22,6 +22,14 @@ export default {
         if (request.method === "POST") { n++; await env.KV.put("visits", String(n)); }
         return J({ count: n });
       }
+      if (route === "testtg") {
+  const r = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text: "Tes dari Worker" }),
+  });
+  return J({ token: !!env.TELEGRAM_BOT_TOKEN, chat: env.TELEGRAM_CHAT_ID || null, status: r.status, body: (await r.text()).slice(0, 200) });
+      }
       if (request.method !== "POST") return J({ error: "method" }, 405);
       const b = await request.json();
 
