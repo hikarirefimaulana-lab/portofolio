@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nama Kamu – Web Developer</title>
+<meta name="description" content="Portofolio Nama Kamu: web developer yang bikin situs cepat, rapi, dan nggak ngebosenin.">
+<meta property="og:title" content="Nama Kamu – web developer">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Manrope:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#d5dbe8;--sf:#fff;--ink:#0f1220;--y:#c8f169;--p:#ff5b2e;--b:#2b50ff;--g:#14b8a6;--sh:#0f1220;
+--d:"Syne","Arial Black",system-ui,sans-serif;--t:"Manrope",system-ui,sans-serif;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b0e1c;--sf:#161b33;--ink:#eef1ff;--sh:#000;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b0e1c;--sf:#161b33;--ink:#eef1ff;--sh:#000;color-scheme:dark}
+*,*::before,*::after{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+a:focus:not(:focus-visible),button:focus:not(:focus-visible),.cd:focus:not(:focus-visible){outline:none}
+nav a,.bt,.cta a,button{user-select:none;-webkit-touch-callout:none}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:600 1rem/1.65 var(--t);overflow-x:hidden;transition:background .4s}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:60}
+a{color:inherit}
+:focus-visible{outline:4px solid var(--p);outline-offset:3px}
+.w{max-width:1080px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--d);font-weight:800;line-height:1.02;letter-spacing:-.03em;margin:0}
+h2{font-size:clamp(1.8rem,5vw,2.6rem);margin-bottom:26px}
+section{padding:72px 0}
+.pg{display:none}.pg.on{display:block;animation:pgin .7s cubic-bezier(.2,.8,.2,1)}body.sub .hm{display:none}
+@keyframes pgin{from{opacity:0;transform:translateY(28px);filter:blur(8px)}}
+#wipe{position:fixed;inset:0;z-index:150;background:var(--p);border-inline:4px solid var(--ink);transform:translateX(-101%);pointer-events:none}
+#wipe.in{transform:none;transition:transform .38s cubic-bezier(.7,0,.3,1)}
+#wipe.out{transform:translateX(101%);transition:transform .45s cubic-bezier(.7,0,.3,1)}
+nav a.ac{background:var(--y);color:#0f1220}
+#menu{position:fixed;inset:0;z-index:140;background:var(--bg);padding:calc(env(safe-area-inset-top,0px) + 14px) 0 calc(40px + env(safe-area-inset-bottom,0px));overflow-y:auto;visibility:hidden;opacity:0;transform:translateY(-18px);transition:opacity .35s,transform .45s cubic-bezier(.2,.8,.2,1),visibility .35s}
+#menu.open{visibility:visible;opacity:1;transform:none}
+#menu.open a{animation:mi .55s both cubic-bezier(.2,.8,.2,1);animation-delay:calc(var(--i)*60ms + 80ms)}
+@keyframes mi{from{opacity:0;transform:translateX(-26px)}}
+#menu a{display:flex;align-items:baseline;gap:14px;font:800 clamp(1.5rem,6vw,2.4rem)/1.15 var(--d);letter-spacing:-.03em;text-decoration:none;padding:8px 0;border-bottom:3px solid var(--ink);transition:padding .2s,color .2s}
+#menu a:hover,#menu a:focus-visible{padding-left:14px;color:var(--p)}
+#menu small{font:700 .95rem var(--t);letter-spacing:0;opacity:.7}
+#menu .ml{font-size:.85rem;letter-spacing:.12em;text-transform:uppercase;margin:26px 0 6px;opacity:.7}
+#mx{display:block;margin-left:auto}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;min-height:calc(100svh - 240px)}
+@media(max-width:860px){.hg{grid-template-columns:1fr;gap:28px}}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px;position:relative;z-index:2}
+.stats>.bx{padding:16px 18px}.stats b{display:block;font:800 clamp(1.5rem,4vw,2.3rem)/1 var(--d)}.stats span{font-size:.85rem;opacity:.75}
+.g4{grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.bx{border:2px solid var(--ink);box-shadow:4px 4px 0 var(--sh);border-radius:16px;background:var(--sf)}
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;padding:10px 0}
+nav .w{display:flex;gap:8px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+nav a,.bt{font:800 .95rem var(--t);text-decoration:none;padding:8px 14px;background:var(--sf);color:var(--ink);border:3px solid var(--ink);border-radius:99px;box-shadow:3px 3px 0 var(--sh);cursor:pointer;transition:transform .12s}
+nav a:hover,.bt:hover{transform:translate(-2px,-2px) rotate(-3deg)}
+nav .lg{margin-right:auto;font-family:var(--d);font-weight:400;background:var(--y);color:#1a1033}
+@media(max-width:560px){nav a.h{display:none}}
+#hero{position:relative;min-height:calc(100svh - 70px);padding:40px 0 56px;overflow:hidden}
+#hero .w{position:relative}
+.hi{font-size:clamp(2.3rem,6vw,4.4rem);position:relative;z-index:2;pointer-events:none}
+.hi i{font-style:normal;display:inline-block;color:var(--p);-webkit-text-stroke:3px var(--ink);paint-order:stroke fill;animation:bob 2.4s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-12px) rotate(3deg)}}
+.sb{max-width:46ch;margin:20px 0 26px;font-size:1.08rem;position:relative;z-index:2}
+.cta{display:flex;gap:12px;flex-wrap:wrap;position:relative;z-index:2}
+.cta a{font:400 1rem var(--d);text-decoration:none;padding:11px 20px;border:3px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--sh);background:var(--y);color:#1a1033;transition:transform .12s,box-shadow .12s}
+.cta a+a{background:var(--b);color:#fff}
+.cta a:hover{transform:translate(3px,3px) rotate(-2deg);box-shadow:2px 2px 0 var(--sh)}
+.hint{font-size:.9rem;opacity:.8;position:relative;z-index:2;margin-top:18px}
+/* mascot */
+#mas{position:relative;width:100%;max-width:400px;justify-self:center;aspect-ratio:1;z-index:0;cursor:grab;touch-action:none}#gl{width:100%;height:100%;display:block}
+.ey{width:42px;height:42px;background:#fff;border:3px solid var(--ink);border-radius:50%;position:relative}
+.ey b{position:absolute;width:16px;height:16px;background:#1a1033;border-radius:50%;left:11px;top:11px}
+#say{position:absolute;right:calc(max(10px,3vw) + 100px);top:30px;background:#fff;color:#1a1033;border:3px solid var(--ink);border-radius:14px;padding:6px 12px;font-size:.9rem;z-index:4;opacity:0;transition:opacity .2s;pointer-events:none;max-width:200px}
+#say.on{opacity:1}
+.st{position:absolute;left:0;top:0;z-index:1;padding:6px 14px;border:3px solid var(--ink);border-radius:99px;box-shadow:4px 4px 0 var(--sh);font:400 1rem var(--d);cursor:grab;touch-action:none;user-select:none;color:#1a1033;white-space:nowrap}
+.st:active{cursor:grabbing}
+.mq{border-block:3px solid var(--ink);background:var(--y);color:#1a1033;overflow:hidden;white-space:nowrap;font:400 1.2rem var(--d);padding:10px 0;transform:rotate(-1.5deg);margin:10px -10px}
+.mq span{display:inline-block;animation:mq 22s linear infinite}
+@keyframes mq{to{transform:translateX(-50%)}}
+.gr{display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.cd{padding:0;overflow:hidden;transition:transform .2s;cursor:pointer}
+.cd:nth-child(odd){transform:rotate(-1.2deg)}.cd:nth-child(even){transform:rotate(1.2deg)}
+.cd:hover{transform:rotate(0) translateY(-6px) scale(1.02)}
+.th{height:130px;display:grid;place-items:center;font:800 2.6rem var(--d);color:#fff;border-bottom:3px solid var(--ink)}
+.cd .in{padding:20px 22px}
+.cd h3{font-size:1.4rem;margin-bottom:6px}
+.cd p{margin:0 0 10px;font-weight:600}
+.tg{display:flex;gap:6px;flex-wrap:wrap}
+.tg b{font-size:.8rem;border:2px solid var(--ink);border-radius:99px;padding:1px 10px;background:var(--y);color:#1a1033}
+.more{display:none;margin-top:12px;padding-top:12px;border-top:3px dashed var(--ink)}
+.cd.op .more{display:block}
+.ab{display:grid;gap:26px;grid-template-columns:1.4fr 1fr;align-items:start}
+@media(max-width:740px){.ab{grid-template-columns:1fr}#mas{max-width:280px}#say{right:20px}}
+.pn{padding:20px}.pn h3{font-size:1.5rem;margin-bottom:10px}.pn p{margin:4px 0}
+form{display:grid;gap:16px;max-width:none}
+label{display:grid;gap:5px}
+input,textarea{font:700 1rem var(--t);padding:12px;border:3px solid var(--ink);border-radius:12px;background:var(--sf);color:var(--ink)}
+textarea{min-height:110px}
+button.go{font:400 1.3rem var(--d);padding:14px;border:3px solid var(--ink);border-radius:16px;box-shadow:5px 5px 0 var(--sh);background:var(--p);color:#1a1033;cursor:pointer}
+button.go:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--sh)}
+footer{padding:30px 0 50px;text-align:center}
+.rv{opacity:0;transform:translateY(30px) scale(.96);transition:opacity .5s,transform .5s}.rv.in{opacity:1;transform:none}
+.cd.rv.in:nth-child(odd){transform:rotate(-1.2deg)}.cd.rv.in:nth-child(even){transform:rotate(1.2deg)}
+.cf{color:var(--p);position:fixed;top:-30px;font-size:1.8rem;z-index:200;pointer-events:none;animation:fl 2.4s ease-in forwards}
+@keyframes fl{to{transform:translateY(110vh) rotate(540deg)}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+@media print{nav,#mas,#say,.st,form{display:none!important}body{background:#fff;color:#000}}
+</style>
+</head>
+<body>
+<nav><div class="w"><a class="lg" href="#hero">NK</a><a class="h" href="#kerja">Karya</a><a class="h" href="#aku">Tentang</a><a class="h" href="#chat">Kontak</a><button class="bt" id="th" aria-label="Ganti tema">Tema</button><button class="bt" id="mn" aria-expanded="false" aria-controls="menu">Menu</button></div></nav>
+
+<header id="hero" class="hm"><div class="w hg" id="arena"><div class="hl">
+<h1 class="hi">Halo, saya<br><i>Nama Kamu</i><br>bikin web.</h1>
+<p class="sb">Web developer yang membangun situs cepat, rapi, dan punya karakter. Dari ide mentah sampai produk yang siap dipakai, saya urus semuanya.</p>
+<div class="cta"><a href="#kerja">Lihat karya</a><a href="#chat">Ajak kolaborasi</a></div>
+<p class="hint">Tarik &amp; lempar stikernya.</p>
+</div>
+<div id="say"></div>
+<div id="mas" role="img" aria-label="Objek 3D interaktif"><canvas id="gl"></canvas></div>
+</div></header>
+
+<div class="mq hm" aria-hidden="true"><span>BISA DIAJAK KERJA ✦ SUKA NGOPI ✦ SUKA NGEBUG ✦ BISA DIAJAK KERJA ✦ SUKA NGOPI ✦ SUKA NGEBUG ✦ BISA DIAJAK KERJA ✦ SUKA NGOPI ✦ SUKA NGEBUG ✦ BISA DIAJAK KERJA ✦ SUKA NGOPI ✦ SUKA NGEBUG ✦ </span></div>
+
+<main>
+<section id="kerja" class="hm"><div class="w"><h2 class="rv">Karya terpilih</h2>
+<div class="gr">
+<article class="cd bx rv" tabindex="0"><div class="th" style="background:var(--b)">A</div><div class="in"><h3>Warung Pintar</h3><p>Aplikasi catat stok &amp; jualan buat UMKM. Anti ribet.</p><div class="tg"><b>React</b><b>Node</b><b>Postgres</b></div>
+<div class="more"><p>😖 Masalah: catatan manual sering salah.</p><p>🛠️ Peran: desain, frontend, backend.</p><p>🎉 Hasil: waktu nyatat turun 60%.</p><p><a href="#">Demo</a> · <a href="#">GitHub</a></p></div></div></article>
+<article class="cd bx rv" tabindex="0"><div class="th" style="background:var(--p)">B</div><div class="in"><h3>Kilat.co</h3><p>Web perusahaan yang loadingnya sekejap mata.</p><div class="tg"><b>Next.js</b><b>CMS</b></div>
+<div class="more"><p>😖 Masalah: situs lama lemot banget.</p><p>🛠️ Peran: frontend &amp; CMS.</p><p>🎉 Hasil: dari 4 detik jadi 1 detik.</p><p><a href="#">Demo</a> · <a href="#">GitHub</a></p></div></div></article>
+<article class="cd bx rv" tabindex="0"><div class="th" style="background:var(--g)">C</div><div class="in"><h3>Dunia Muter</h3><p>Eksperimen 3D interaktif yang enteng di HP.</p><div class="tg"><b>Three.js</b><b>JS</b></div>
+<div class="more"><p>😖 Masalah: 3D biasanya berat.</p><p>🛠️ Peran: semuanya sendirian.</p><p>🎉 Hasil: 60 FPS di HP menengah.</p><p><a href="#">Demo</a> · <a href="#">GitHub</a></p></div></div></article>
+</div><p style="margin-top:20px">Klik kartu untuk membuka studi kasus.</p></div></section>
+
+<section id="aku" class="hm"><div class="w ab"><div class="rv"><h2>Tentang saya</h2>
+<p>Saya suka mengubah ide yang berantakan menjadi produk yang rapi. Tiga tahun terakhir saya membangun aplikasi web untuk warung sampai startup, dengan perhatian pada performa dan detail interaksi.</p>
+<p style="margin-top:14px">Di luar kerja, saya suka memotret, ngopi, dan mencoba alat baru. Sisi lainnya ada di tombol Menu.</p>
+<div class="tg" style="margin-top:18px"><b>HTML/CSS</b><b>JavaScript</b><b>React</b><b>Node.js</b><b>Figma</b><b>Git</b><b>Three.js</b></div>
+<div class="bx" style="padding:20px 22px;margin-top:26px;background:var(--y);color:#0f1220"><b style="font:800 1.25rem var(--d)">Prinsip kerja</b><p style="margin:6px 0 0">Cepat dimuat, jelas dipakai, dan enak dilihat. Tiga hal itu tidak boleh saling mengalahkan.</p></div></div>
+<aside class="pn bx rv"><h3>Sekilas</h3><p>Indonesia</p><p>Terbuka untuk proyek baru</p><p>Jam lokal: <span id="ck">--:--</span></p><p><a href="#" onclick="print();return false">Simpan CV</a></p><p><a href="#">GitHub: @usernamekamu</a></p></aside></div></section>
+
+<div id="menu" role="dialog" aria-modal="true" aria-label="Menu"><div class="w"><button class="bt" id="mx">Tutup</button>
+<p class="ml">Di beranda</p>
+<a href="#hero">Beranda</a><a href="#kerja">Karya</a><a href="#aku">Tentang</a><a href="#chat">Kontak</a>
+<p class="ml">Lebih dalam</p>
+<a href="#hobi">Hobi <small>di luar layar</small></a><a href="#makanan">Makanan <small>daftar favorit</small></a>
+</div></div>
+<div id="wipe" aria-hidden="true"></div>
+<section id="hobi" class="pg"><div class="w"><h2 class="rv">Hobi</h2><div class="gr g4">
+<article class="cd bx rv"><div class="th" style="background:var(--p)">01</div><div class="in"><h3>Fotografi jalanan</h3><p>Jalan kaki tanpa tujuan sambil mencari cahaya yang bagus.</p></div></article>
+<article class="cd bx rv"><div class="th" style="background:var(--b)">02</div><div class="in"><h3>Musik</h3><p>Main gitar sebentar, lalu ganti playlist tiga kali.</p></div></article>
+<article class="cd bx rv"><div class="th" style="background:var(--g)">03</div><div class="in"><h3>Game indie</h3><p>Suka yang ceritanya unik dan desainnya rapi.</p></div></article>
+<article class="cd bx rv"><div class="th" style="background:var(--ink)">04</div><div class="in"><h3>Bersepeda</h3><p>Cara terbaik untuk membereskan kepala sebelum ngoding.</p></div></article>
+</div><p style="margin-top:26px"><a class="bt" href="#hero">Kembali ke beranda</a></p></div></section>
+<section id="makanan" class="pg"><div class="w"><h2 class="rv">Makanan favorit</h2><div class="gr g4">
+<article class="cd bx rv"><div class="th" style="background:var(--p)">01</div><div class="in"><h3>Nasi goreng</h3><p>Pakai telur ceplok setengah matang, tanpa kompromi.</p></div></article>
+<article class="cd bx rv"><div class="th" style="background:var(--g)">02</div><div class="in"><h3>Soto ayam</h3><p>Kuah bening, banyak koya, sambal secukupnya.</p></div></article>
+<article class="cd bx rv"><div class="th" style="background:var(--b)">03</div><div class="in"><h3>Kopi susu</h3><p>Bahan bakar utama untuk semua proyek di sini.</p></div></article>
+<article class="cd bx rv"><div class="th" style="background:var(--ink)">04</div><div class="in"><h3>Mi instan tengah malam</h3><p>Kelemahan terbesar saat deadline mendekat.</p></div></article>
+</div><p style="margin-top:26px"><a class="bt" href="#hero">Kembali ke beranda</a></p></div></section>
+<section id="chat" class="hm"><div class="w"><h2 class="rv">Ayo ngobrol</h2>
+<div class="ab"><form class="rv" id="f"><label>Nama<input name="n" required autocomplete="name"></label><label>Email<input name="e" type="email" required autocomplete="email"></label><label>Mau bikin apa?<textarea name="m" required></textarea></label><label style="position:absolute;left:-9999px" aria-hidden="true">Jangan diisi<input name="h" tabindex="-1" autocomplete="off"></label><button class="go" type="submit">Kirim pesan</button></form><aside class="pn bx rv"><h3>Atau langsung</h3><p>Email: emailkamu@example.com</p><p>Balasan: biasanya dalam 24 jam</p><p>Lokasi: Indonesia, bisa remote</p><p><a href="#">LinkedIn</a> · <a href="#">GitHub</a> · <a href="#">Instagram</a></p></aside></div></div></section>
+</main>
+<footer><p id="vc" style="margin:0 0 6px"></p>© 2026 Nama Kamu · Dibuat dengan HTML, CSS &amp; Three.js · Coba ↑↑↓↓←→←→BA</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+var d=document,$=function(s){return d.querySelector(s)},R=d.documentElement,rm=matchMedia("(prefers-reduced-motion:reduce)").matches;
+try{var t=localStorage.getItem("th");if(t)R.setAttribute("data-theme",t)}catch(e){}
+$("#th").onclick=function(){var c=R.getAttribute("data-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"),n=c==="dark"?"light":"dark";R.setAttribute("data-theme",n);try{localStorage.setItem("th",n)}catch(e){}};
+function tk(){$("#ck").textContent=new Date().toLocaleTimeString([],{hour:"2-digit",minute:"2-digit"})}tk();setInterval(tk,30000);
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.1});
+d.querySelectorAll(".rv").forEach(function(e){io.observe(e)});
+d.querySelectorAll(".cd").forEach(function(c){function tg(){c.classList.toggle("op")}c.onclick=function(e){if(!e.target.closest("a"))tg()};c.onkeydown=function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();tg()}}});
+/* mascot eyes + quips */
+var mas=$("#mas"),say=$("#say"),px=innerWidth/2,py=0;
+addEventListener("pointermove",function(e){px=e.clientX;py=e.clientY;eyes()});
+function eyes(){var r=mas.getBoundingClientRect(),cx=r.left+r.width/2,cy=r.top+r.height/2,a=Math.atan2(py-cy,px-cx);mas.querySelectorAll("b").forEach(function(b){b.style.transform="translate("+Math.cos(a)*8+"px,"+Math.sin(a)*8+"px)"})}
+var q=["Dirender real-time, bukan video.","Coba putar pelan-pelan.","Tersedia untuk proyek baru.","Scroll, karyanya ada di bawah.","Halus, kan?"],qi=0,tm;
+function talk(s){say.textContent=s;say.classList.add("on");clearTimeout(tm);tm=setTimeout(function(){say.classList.remove("on")},2200)}
+mas.onclick=function(){pulse=1};
+mas.onkeydown=function(e){if(e.key==="Enter")mas.click()};
+
+/* physics stickers */
+var ar=$("#hero"),S=[],list=[["JavaScript","#c8f169"],["React","#8aa0ff"],["CSS","#ff8a66"],["Node","#5eead4"],["Figma","#ffd166"],["Git","#d5dbe8"],["Three.js","#fff"],["UI/UX","#c8f169"]],W,H,drag=null;
+function mk(){S.forEach(function(s){s.el.remove()});S=[];W=ar.clientWidth;H=ar.clientHeight;
+list.forEach(function(l,i){var el=d.createElement("div");el.className="st";el.textContent=l[0];el.style.background=l[1];ar.appendChild(el);
+var s={el:el,x:Math.random()*(W-120),y:-60-i*80,vx:(Math.random()-.5)*6,vy:0,w:0,h:0};s.w=el.offsetWidth;s.h=el.offsetHeight;S.push(s);
+el.addEventListener("pointerdown",function(e){drag={s:s,ox:e.clientX-s.x,oy:e.clientY-s.y,lx:e.clientX,ly:e.clientY};el.setPointerCapture(e.pointerId);e.preventDefault()});
+el.addEventListener("pointermove",function(e){if(drag&&drag.s===s){var r=ar.getBoundingClientRect();s.x=e.clientX-drag.ox;s.y=e.clientY-drag.oy;s.vx=(e.clientX-drag.lx)*.9;s.vy=(e.clientY-drag.ly)*.9;drag.lx=e.clientX;drag.ly=e.clientY}});
+el.addEventListener("pointerup",function(){drag=null})})}
+mk();addEventListener("resize",function(){if(ar.clientWidth){W=ar.clientWidth;H=ar.clientHeight}});
+function step(){S.forEach(function(s){if(!(drag&&drag.s===s)){s.vy+=rm?0:.6;s.x+=s.vx;s.y+=s.vy;
+if(s.x<0){s.x=0;s.vx*=-.7}if(s.x>W-s.w){s.x=W-s.w;s.vx*=-.7}
+if(s.y>H-s.h-8){s.y=H-s.h-8;s.vy*=-.55;s.vx*=.92;if(Math.abs(s.vy)<1)s.vy=0}}
+s.el.style.transform="translate("+s.x+"px,"+s.y+"px) rotate("+s.vx*2+"deg)"});requestAnimationFrame(step)}
+step();
+d.querySelectorAll(".more p:not(:last-child)").forEach(function(p){p.textContent=p.textContent.replace(/^\S+\s/,"")});
+if(!rm&&matchMedia("(pointer:fine)").matches)d.querySelectorAll(".cd").forEach(function(c){c.addEventListener("mousemove",function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform="perspective(900px) rotateY("+x*14+"deg) rotateX("+-y*14+"deg) translateZ(14px)"});c.addEventListener("mouseleave",function(){c.style.transform=""})});
+/* 3D object */
+var pulse=0,gl=$("#gl");
+if(window.THREE&&gl){try{
+var T=THREE,rd=new T.WebGLRenderer({canvas:gl,alpha:true,antialias:true}),sc=new T.Scene(),cam=new T.PerspectiveCamera(40,1,.1,100);cam.position.z=12;rd.setPixelRatio(Math.min(devicePixelRatio,2));
+var g=new T.Group(),k=new T.Mesh(new T.TorusKnotGeometry(1.3,.42,160,24),new T.MeshStandardMaterial({color:0x2b50ff,metalness:.55,roughness:.25})),wf=new T.Mesh(new T.TorusKnotGeometry(1.3,.42,60,10),new T.MeshBasicMaterial({color:0xffffff,wireframe:true,transparent:true,opacity:.35}));wf.scale.setScalar(1.06);g.add(k,wf);
+var ring=new T.Mesh(new T.TorusGeometry(2.5,.03,8,100),new T.MeshBasicMaterial({color:0xff5b2e}));ring.rotation.x=1.2;g.add(ring);
+var orb=[];for(var i=0;i<3;i++){var o=new T.Mesh(new T.IcosahedronGeometry(.22,0),new T.MeshStandardMaterial({color:i?0xc8f169:0xff5b2e,flatShading:true}));orb.push(o);g.add(o)}
+sc.add(g,new T.AmbientLight(0xffffff,.6));var dl=new T.DirectionalLight(0xffffff,1.1);dl.position.set(3,4,5);sc.add(dl);
+var ry=0,rx=0,dg=false,lx=0,ly=0,tt=0;
+gl.addEventListener("pointerdown",function(e){dg=true;lx=e.clientX;ly=e.clientY;gl.setPointerCapture(e.pointerId)});
+gl.addEventListener("pointermove",function(e){if(dg){ry+=(e.clientX-lx)*.01;rx+=(e.clientY-ly)*.01;lx=e.clientX;ly=e.clientY}});
+gl.addEventListener("pointerup",function(){dg=false});
+function rs(){var w=gl.clientWidth;rd.setSize(w,w,false)}rs();addEventListener("resize",rs);
+(function an(){tt+=.01;if(!dg&&!rm)ry+=.006;pulse*=.92;
+g.rotation.y=ry+(px/innerWidth-.5)*.6;g.rotation.x=rx+(py/innerHeight-.5)*.4+.2;g.scale.setScalar(1+pulse*.18);
+orb.forEach(function(o,i){var a=tt*(1+i*.4)+i*2.1;o.position.set(Math.cos(a)*2.5,Math.sin(a*1.3)*.9,Math.sin(a)*2.5)});
+rd.render(sc,cam);requestAnimationFrame(an)})();
+}catch(e){}}
+/* menu */
+var mn=$("#menu");
+function om(o){mn.classList.toggle("open",o);$("#mn").setAttribute("aria-expanded",o);d.body.style.overflow=o?"hidden":"";if(o)$("#mx").focus()}
+$("#mn").onclick=function(){om(true)};$("#mx").onclick=function(){om(false)};
+mn.querySelectorAll("a").forEach(function(a,i){a.style.setProperty("--i",i);a.addEventListener("click",function(){om(false)})});
+addEventListener("keydown",function(e){if(e.key==="Escape")om(false)});
+/* page router */
+var ids=["hobi","makanan"],cp=null,wp=$("#wipe");
+function cur(){var n=location.hash.slice(1);return ids.indexOf(n)<0?"home":n}
+function show(id){ids.forEach(function(i){$("#"+i).classList.toggle("on",i===id)});d.body.classList.toggle("sub",id!=="home");
+d.querySelectorAll("nav a").forEach(function(a){a.classList.toggle("ac",a.getAttribute("href")==="#"+id)});
+var t=null;try{if(id==="home"&&location.hash.length>1)t=$(location.hash)}catch(e){}
+if(t)t.scrollIntoView({behavior:"instant"});else scrollTo({top:0,behavior:"instant"});dispatchEvent(new Event("resize"))}
+function route(first){var id=cur();if(id===cp)return;
+if(first||rm){show(id);cp=id;return}
+wp.className="in";setTimeout(function(){var n=cur();show(n);cp=n;wp.className="out";setTimeout(function(){wp.className=""},480)},400)}
+addEventListener("hashchange",function(){route()});route(true);
+/* visitor counter */
+var seen=null;try{seen=localStorage.getItem("seen")}catch(e){}
+fetch("/api/visit",{method:seen?"GET":"POST"}).then(function(r){return r.json()}).then(function(j){$("#vc").textContent="Pengunjung: "+Number(j.count).toLocaleString("id-ID");try{localStorage.setItem("seen","1")}catch(e){}}).catch(function(){});
+/* confetti + konami */
+function boom(){var e=["◆","●","▲","■","✦"];for(var i=0;i<40;i++){var c=d.createElement("div");c.className="cf";c.textContent=e[i%e.length];c.style.left=Math.random()*100+"vw";c.style.animationDelay=Math.random()*.8+"s";d.body.appendChild(c);setTimeout(function(x){x.remove()},3500,c)}}
+var kk=[38,38,40,40,37,39,37,39,66,65],ki=0;
+addEventListener("keydown",function(e){ki=e.keyCode===kk[ki]?ki+1:0;if(ki===kk.length){boom();talk("Kamu menemukan rahasianya! 🎉");ki=0}});
+$("#f").addEventListener("submit",function(e){e.preventDefault();var f=e.target,b=f.querySelector("button.go");b.disabled=true;b.textContent="Mengirim…";
+fetch("/api/contact",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({n:f.n.value,e:f.e.value,m:f.m.value,h:f.h.value})}).then(function(r){if(!r.ok)throw 0;boom();f.reset();b.textContent="Terkirim, terima kasih!"}).catch(function(){b.textContent="Gagal, coba lagi";b.disabled=false})});
+})();
+</script>
+</body>
+</html>
